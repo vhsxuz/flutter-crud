@@ -2,9 +2,9 @@
 import 'package:supabase/supabase.dart';
 
 class SupaBaseHandler {
-  static String supabaseUrl = "";
-  static String supabaseKey = "";
-
+  static String supabaseUrl = "https://iczjxqdyqsujlklhhryn.supabase.co";
+  static String supabaseKey =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imljemp4cWR5cXN1amxrbGhocnluIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NjIyNjQyOTksImV4cCI6MTk3Nzg0MDI5OX0.P9_lpuNYDSmykQlDK-GcpySupS5z7gPtmm-crjHnfWM";
   final client = SupabaseClient(supabaseUrl, supabaseKey);
 
   addData(String taskValue, bool statusValue) {
@@ -21,6 +21,7 @@ class SupaBaseHandler {
         .select()
         .order('task', ascending: true)
         .execute();
+    print(response.data);
     final dataList = response.data as List;
     return dataList;
   }
