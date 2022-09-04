@@ -1,6 +1,4 @@
 // ignore_for_file: avoid_print
-
-import 'package:flutter/material.dart';
 import 'package:supabase/supabase.dart';
 
 class SupaBaseHandler {
@@ -9,7 +7,7 @@ class SupaBaseHandler {
 
   final client = SupabaseClient(supabaseUrl, supabaseKey);
 
-  addData(String taskValue, bool statusValue) async {
+  addData(String taskValue, bool statusValue) {
     var response = client.from("todo").insert({
       'task': taskValue,
       'status': statusValue,
@@ -28,7 +26,7 @@ class SupaBaseHandler {
   }
 
   updateData(int id, bool statusValue) async {
-    var response = client
+    var response = await client
         .from("todo")
         .update({
           'status': statusValue,
