@@ -21,8 +21,6 @@ class SupaBaseHandler {
         .select()
         .order('task', ascending: true)
         .execute();
-    print(response.data);
-    print(response.error);
     final dataList = response.data as List;
     return dataList;
   }
