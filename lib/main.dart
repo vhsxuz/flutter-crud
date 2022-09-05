@@ -59,9 +59,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       const Padding(padding: EdgeInsets.only(left: 50)),
                       IconButton(
-                          icon: const Icon(Icons.done), onPressed: () {}),
+                          icon: const Icon(Icons.done),
+                          onPressed: () {
+                            supaBaseHandler.updateData(
+                                snapshot.data[index]['id'], true);
+                            setState(() {});
+                          }),
                       IconButton(
-                          icon: const Icon(Icons.delete), onPressed: () {}),
+                          icon: const Icon(Icons.delete),
+                          onPressed: () {
+                            supaBaseHandler
+                                .deleteData(snapshot.data[index]['id']);
+                            setState(() {});
+                          }),
                     ],
                   ),
                 );
