@@ -52,10 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      const Padding(padding: EdgeInsets.only(left: 20)),
                       SizedBox(
                         width: 200,
                         child: Text(snapshot.data[index]['task']),
                       ),
+                      const Padding(padding: EdgeInsets.only(left: 50)),
                       IconButton(
                           icon: const Icon(Icons.done), onPressed: () {}),
                       IconButton(
