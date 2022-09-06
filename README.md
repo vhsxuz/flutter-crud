@@ -1,6 +1,6 @@
-# Flutter CRUD
+# Todo List
 
-A new Flutter project.
+Creating a todo list app using Flutter
 
 ## Getting Started
 
