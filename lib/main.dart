@@ -86,9 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Expanded(
-              child: TextField(onChanged: (value) {
-                newValue = value;
-              }),
+              child: TextField(
+                  decoration:
+                      const InputDecoration(hintText: 'Insert New Todo'),
+                  onChanged: (value) {
+                    newValue = value;
+                  }),
             ),
             FloatingActionButton(
               onPressed: () {
