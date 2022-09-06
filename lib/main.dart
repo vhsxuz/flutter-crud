@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    String newValue = "";
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -78,6 +79,33 @@ class _MyHomePageState extends State<MyHomePage> {
               });
         },
         future: supaBaseHandler.readData(),
+      ),
+      floatingActionButton: SizedBox(
+        width: MediaQuery.of(context).size.width * 0.9,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+              child: TextField(onChanged: (value) {
+                newValue = value;
+              }),
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                supaBaseHandler.addData(newValue, false);
+                setState(() {});
+              },
+              child: const Icon(Icons.add),
+            ),
+            const Padding(padding: EdgeInsets.only(left: 10, bottom: 10)),
+            FloatingActionButton(
+              onPressed: () {
+                setState(() {});
+              },
+              child: const Icon(Icons.refresh),
+            ),
+          ],
+        ),
       ),
     );
   }
